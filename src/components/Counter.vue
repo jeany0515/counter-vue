@@ -17,10 +17,12 @@
         methods: {
             increase() {
                 this.count = this.count + 1;
+                this.$emit('increase-result');
             },
 
             decrease() {
                 this.count = this.count - 1;
+                this.$emit('decrease-result');
             }
         }
     }

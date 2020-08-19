@@ -1,7 +1,8 @@
 <template>
     <div class="counter-group">
         <input v-model.number="countNumber" type="number">
-        <Counter v-for="(value, index) in counters" v-bind:key="index"></Counter>
+        <span>total: {{total}}</span>
+        <Counter v-for="(value, index) in counters" v-bind:key="index" @increase-result="increaseResult" @decrease-result="decreaseResult"></Counter>
     </div>
 </template>
 
@@ -14,7 +15,8 @@
         },
         data() {
             return {
-                countNumber: 0
+                countNumber: 0,
+                total: 0
             }
         },
         computed: {
@@ -24,12 +26,12 @@
             }
         },
         methods: {
-            increase() {
-                this.count = this.count + 1;
+            increaseResult() {
+                this.total = this.total + 1;
             },
 
-            decrease() {
-                this.count = this.count - 1;
+            decreaseResult() {
+                this.total = this.total - 1;
             }
         }
     }
