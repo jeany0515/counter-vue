@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <Counter />
+    <CounterGroup></CounterGroup>
   </div>
 </template>
 
 <script>
-import Counter from './components/Counter.vue'
+import CounterGroup from "./components/CounterGroup";
 
 export default {
   name: 'App',
   components: {
-    Counter
+    CounterGroup
   }
 }
 </script>
