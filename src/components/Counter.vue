@@ -1,12 +1,13 @@
 <template>
     <div class="counter">
-        <button @click="increase()">+</button>
+        <button @click="increase">+</button>
         <span>{{count}}</span>
-        <button @click="decrease()">-</button>
+        <button @click="decrease">-</button>
     </div>
 </template>
 
 <script>
+    import { mapActions } from 'vuex'
     export default {
         name: 'Counter',
         data() {
@@ -14,20 +15,10 @@
                 count: 0
             }
         },
-        methods: {
-            increase() {
-                this.count = this.count + 1;
-                this.$emit('increase-result');
-            },
-
-            decrease() {
-                this.count = this.count - 1;
-                this.$emit('decrease-result');
-            }
-        }
+        methods: mapActions([
+            'increase',
+            'decrease',
+        ])
     }
 </script>
 
-<style scoped>
-
-</style>
